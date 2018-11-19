@@ -6,7 +6,7 @@
 
 %global pypiname tox
 Name:           python-%{pypiname}
-Version:        3.5.3
+Version:        3.4.0
 Release:        1%{?dist}
 Summary:        Virtualenv-based automation of test activities
 
@@ -103,8 +103,8 @@ TOXENV=py%{python3_version_nodots} %{__python3} setup.py test
 %{python3_sitelib}/%{pypiname}-%{version}-py%{python3_version}.egg-info
 
 %changelog
-* Mon Nov 19 2018 Artem Goncharov <artem.goncharov@gmail.com> - 3.5.3-1
-- upgrade to 3.5.3 version
+* Mon Nov 19 2018 Artem Goncharov <artem.goncharov@gmail.com> - 3.4.0-1
+- upgrade to 3.4.0 version
 
 * Thu Nov 01 2018 Matthias Runge <mrunge@redhat.com> - 3.0.0-6
 - remove and revert the change to recommend python 2.7 (rhbz#1645025)
