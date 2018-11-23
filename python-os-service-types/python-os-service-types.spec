@@ -32,6 +32,7 @@ BuildRequires:  git
 %description
 %{common_desc}
 
+%if 0%{?with_python2}
 %package -n     python2-%{pypi_name}
 Summary:        %{summary}
 %{?python_provide:%python_provide python2-%{pypi_name}}
@@ -52,6 +53,7 @@ BuildRequires:  python2-testscenarios >= 0.4
 Requires:       python2-pbr >= 2.0.0
 %description -n python2-%{pypi_name}
 %{common_desc}
+%endif
 
 %if 0%{?with_python3}
 %package -n     python3-%{pypi_name}
@@ -92,12 +94,21 @@ Documentation for %{pypi_name}
 %autosetup -n %{pypi_name}-%{version} -S git
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
+sed -i 's/^warning-is-error.*/warning-is-error = 0/g' setup.cfg
+# The TestRemote test cases must be excluded because they introduce a circular
+# dependency on python-keystoneauth1.
+# Using --black-regex with stestr is not enough because the problem occurs when
+# keystoneauth is imported, not when the test is run.
+rm os_service_types/tests/test_remote.py
+rm -rf *requirements.txt
 
 %build
 %if 0%{?with_python3}
 %py3_build
 %endif
+%if 0%{?with_python2}
 %py2_build
+%endif
 # generate html docs
 %{__python2} setup.py build_sphinx -b html
 # remove the sphinx-build leftovers
@@ -108,21 +119,26 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 %py3_install
 %endif
 
+%if 0%{?with_python2}
 %py2_install
-
+%endif
 
 %check
 %if 0%{?with_python3}
 %{__python3} -m stestr.cli run
 %endif
 
+%if 0%{?with_python2}
 %{__python2} -m stestr.cli run
+%endif
 
+%if 0%{?with_python2}
 %files -n python2-%{pypi_name}
 %license LICENSE
 %doc README.rst doc/source/readme.rst
 %{python2_sitelib}/%{module_name}
 %{python2_sitelib}/%{module_name}-%{version}-py?.?.egg-info
+%endif
 
 %if 0%{?with_python3}
 %files -n python3-%{pypi_name}
