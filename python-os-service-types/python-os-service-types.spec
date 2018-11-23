@@ -36,8 +36,9 @@ Summary:        %{summary}
 
 BuildRequires:  python2-devel
 BuildRequires:  python2-setuptools
-BuildRequires:  python2-oslotest >= 3.2.0
 BuildRequires:  python2-keystoneauth1 >= 3.4.0
+BuildRequires:  python2-oslotest >= 3.2.0
+BuildRequires:  python2-openstackdocstheme >= 1.18.1
 BuildRequires:  python2-pbr >= 2.0.0
 BuildRequires:  python2-reno >= 2.5.0
 BuildRequires:  python2-requests-mock >= 1.2.0
@@ -57,8 +58,9 @@ Summary:        %{summary}
 
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
-BuildRequires:  python3-oslotest >= 3.2.0
 BuildRequires:  python3-keystoneauth1 >= 3.4.0
+BuildRequires:  python3-openstackdocstheme >= 1.18.1
+BuildRequires:  python3-oslotest >= 3.2.0
 BuildRequires:  python3-pbr >= 2.0.0
 BuildRequires:  python3-reno >= 2.5.0
 BuildRequires:  python3-requests-mock >= 1.2.0
