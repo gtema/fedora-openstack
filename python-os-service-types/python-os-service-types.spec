@@ -124,13 +124,14 @@ rm -rf *requirements.txt
 rm -rf doc/build/html/.{doctrees,buildinfo}
 
 %install
+%if 0%{?with_python2}
+%py2_install
+%endif
+
 %if 0%{?with_python3}
 %py3_install
 %endif
 
-%if 0%{?with_python2}
-%py2_install
-%endif
 
 %check
 %if 0%{?with_python3}
