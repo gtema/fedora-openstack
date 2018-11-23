@@ -36,6 +36,7 @@ Summary:        %{summary}
 
 BuildRequires:  python2-devel
 BuildRequires:  python2-setuptools
+BuildRequires:  python2-coverage >= 4.0.0
 BuildRequires:  python2-keystoneauth1 >= 3.4.0
 BuildRequires:  python2-oslotest >= 3.2.0
 BuildRequires:  python2-openstackdocstheme >= 1.18.1
@@ -58,6 +59,7 @@ Summary:        %{summary}
 
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
+BuildRequires:  python3-coverage >= 4.0.0
 BuildRequires:  python3-keystoneauth1 >= 3.4.0
 BuildRequires:  python3-openstackdocstheme >= 1.18.1
 BuildRequires:  python3-oslotest >= 3.2.0
@@ -135,6 +137,10 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 %doc doc/build/html
 
 %changelog
+* Fri Nov 23 2018 Artem Goncharov <artem.goncharov@gmail.com> - 1.3.0-1
+- Update version to 1.3.0
+- Incorporate stricter requirement versions from upstream
+
 * Sat Jul 14 2018 Fedora Release Engineering <releng@fedoraproject.org> - 1.1.0-7
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
 
