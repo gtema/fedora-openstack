@@ -81,8 +81,13 @@ Requires:       python3-pbr >= 2.0.0
 %package -n python-%{pypi_name}-doc
 Summary:        %{pypi_name} documentation
 
+%if 0%{?with_python3}
+BuildRequires:  python3-openstackdocstheme >= 1.18.1
+BuildRequires:  python3-sphinx
+%else
 BuildRequires:  python2-openstackdocstheme >= 1.18.1
 BuildRequires:  python2-sphinx
+%endif
 
 %description -n python-%{pypi_name}-doc
 %{common_desc}
@@ -110,7 +115,11 @@ rm -rf *requirements.txt
 %py2_build
 %endif
 # generate html docs
+%if 0%{?with_python3}
+%{__python3} setup.py build_sphinx -b html
+%else
 %{__python2} setup.py build_sphinx -b html
+%endif
 # remove the sphinx-build leftovers
 rm -rf doc/build/html/.{doctrees,buildinfo}
 
