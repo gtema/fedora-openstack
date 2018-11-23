@@ -39,7 +39,6 @@ BuildRequires: python2-six
 BuildRequires: python2-pbr >= 2.0.0
 
 # test requires
-BuildRequires: python2-bandit >= 1.1.0
 BuildRequires: python2-betamax >= 0.7.0
 BuildRequires: python2-coverage >= 4.0
 BuildRequires: python2-fixtures >= 3.0.0
@@ -88,7 +87,6 @@ BuildRequires: python3-six
 BuildRequires: python3-pbr >= 2.0.0
 
 # test requires
-BuildRequires: python3-bandit >= 1.1.0
 BuildRequires: python3-betamax >= 0.7.0
 BuildRequires: python3-coverage >= 4.0
 BuildRequires: python3-fixtures >= 3.0.0
