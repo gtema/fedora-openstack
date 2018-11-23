@@ -135,11 +135,9 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 
 %check
 %if 0%{?with_python3}
-%{__python3} -m stestr.cli run
-%endif
-
-%if 0%{?with_python2}
-%{__python2} -m stestr.cli run
+%{__python3} setup.py test
+%else
+%{__python2} setup.py test
 %endif
 
 %if 0%{?with_python2}
